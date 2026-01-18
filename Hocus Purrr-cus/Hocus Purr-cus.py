@@ -31,6 +31,9 @@ wizard2_rect = wizard2_surf.get_rect(midbottom = (400, 460))
 wizard_HP0 = pygame.transform.flip(player_HP0, 1, 0)
 wizard_HP0_rect = player_surf.get_rect(center = (740, 200))
 
+# Music ---------------------------------------------------
+
+music = pygame.mixer.Sound("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Music/FightMusic.mp3")
 
 while True:
     for event in pygame.event.get():
@@ -43,6 +46,8 @@ while True:
     screen.blit(player_surf, player_rect)
     screen.blit(player_HP0, player_HP0_rect)
     screen.blit(wizard_HP0, wizard_HP0_rect)
+    music.play()
+    music.set_volume(0.2)
 
 
     pygame.display.update()
