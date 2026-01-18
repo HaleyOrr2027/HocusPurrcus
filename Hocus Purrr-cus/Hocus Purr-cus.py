@@ -7,6 +7,8 @@ pygame.display.set_caption('Hocus Purr-cus')
 screen = pygame.display.set_mode((800, 533))
 clock = pygame.time.Clock()
 
+game_active = True
+
 # Background ----------------------------------------------- 
 
 bg_surface = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/background.png").convert_alpha()
@@ -25,6 +27,8 @@ player_HP0_rect = player_surf.get_rect(center = (300, 200))
 
 wizard2_surf = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/wizard_2.png").convert_alpha()
 wizard2_rect = wizard2_surf.get_rect(midbottom = (400, 460))
+wizard_wiggle_offset = 0
+wizard_wiggle_direction = 0
 
 # Wizard HP -----------------------------------------------
 
@@ -34,6 +38,30 @@ wizard_HP0_rect = player_surf.get_rect(center = (740, 200))
 # Music ---------------------------------------------------
 
 music = pygame.mixer.Sound("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Music/FightMusic.mp3")
+music.play(-1)
+music.set_volume(0.2)
+
+
+# Functions -----------------------------------------------
+
+def click_effect():
+    global wizard_wiggle_direction, wizard_wiggle_offset
+
+    if wizard_wiggle_direction != 0:
+        wizard_wiggle_offset += 2 * wizard_wiggle_direction
+
+    # reverse direction at limits
+    if wizard_wiggle_offset >= 8:
+        wizard_wiggle_direction = -1
+    if wizard_wiggle_offset <= -8:
+         wizard_wiggle_direction = 1
+
+    # stop when settled near center
+    if abs(wizard_wiggle_offset) < 2 and wizard_wiggle_direction == 1:
+        wizard_wiggle_offset = 0
+        wizard_wiggle_direction = 0
+
+
 
 while True:
     for event in pygame.event.get():
@@ -41,13 +69,24 @@ while True:
             pygame.quit()
             exit()
     
-    screen.blit(bg_surface, (0,0))
-    screen.blit(wizard2_surf, wizard2_rect)
-    screen.blit(player_surf, player_rect)
-    screen.blit(player_HP0, player_HP0_rect)
-    screen.blit(wizard_HP0, wizard_HP0_rect)
-    music.play()
-    music.set_volume(0.2)
+
+        if event.type == pygame.MOUSEBUTTONDOWN and wizard2_rect.collidepoint(event.pos):
+            #Start moving the wizard to the right
+            wizard_wiggle_direction = 1
+        
+
+    if game_active:
+
+        click_effect()
+
+        screen.blit(bg_surface, (0,0))
+        screen.blit(wizard2_surf, (wizard2_rect.x + wizard_wiggle_offset, wizard2_rect.y))
+        screen.blit(player_surf, player_rect)
+        screen.blit(player_HP0, player_HP0_rect)
+        screen.blit(wizard_HP0, wizard_HP0_rect)
+
+
+
 
 
     pygame.display.update()
