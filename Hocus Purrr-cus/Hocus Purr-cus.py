@@ -6,7 +6,7 @@ pygame.display.set_caption('Hocus Purr-cus')
 screen = pygame.display.set_mode((800, 600))
 clock = pygame.time.Clock()
 
-# Background ----------------------------------------------
+# Background ----------------------------------------------- 
 
 bg_surface = pygame.image.load('Hocus Purrr-cus\Graphics\background.png').convert_alpha()
 
