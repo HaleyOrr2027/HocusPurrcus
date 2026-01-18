@@ -1,4 +1,4 @@
-⚠️ This project is very much still a work in progress. Things change a lot as I experiment, break stuff, and rebuild it.
+⚠️ This project is very much still a work in progress. Things change a lot as I experiment, break stuff, and rebuild it. ⚠️
 
 Hocus Purrcus is an experimental game where you play as a wizard battling spell-casting opponents on screen using a physical wand controller instead of a keyboard or mouse. 
 The game has a playful, doodle-style aesthetic inspired by wizard cats and sketchbook art! Players battle wizards on screen using a physical wand instead of a keyboard or mouse. 
