@@ -17,6 +17,7 @@ bg_surface = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPu
 
 player_surf = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/player.png").convert_alpha()
 player_rect = player_surf.get_rect(midbottom = (400, 533))
+player_direction = 0
 
 # Player HP -----------------------------------------------
 
@@ -47,6 +48,7 @@ music.set_volume(0.2)
 def click_effect():
     global wizard_wiggle_direction, wizard_wiggle_offset
 
+
     if wizard_wiggle_direction != 0:
         wizard_wiggle_offset += 2 * wizard_wiggle_direction
 
@@ -62,6 +64,22 @@ def click_effect():
         wizard_wiggle_direction = 0
 
 
+def player_movement():
+
+    # move a little each frame
+    keys = pygame.key.get_pressed()
+
+    if keys[pygame.K_RIGHT]:
+        player_rect.x += 3
+    if keys[pygame.K_LEFT]:
+        player_rect.x -= 3
+
+
+    # clamp to bounds and stop
+    if player_rect.x <= -50:
+        player_rect.x = -50
+    if player_rect.x >= 400:
+        player_rect.x = 400
 
 while True:
     for event in pygame.event.get():
@@ -78,6 +96,7 @@ while True:
     if game_active:
 
         click_effect()
+        player_movement()
 
         screen.blit(bg_surface, (0,0))
         screen.blit(wizard2_surf, (wizard2_rect.x + wizard_wiggle_offset, wizard2_rect.y))
