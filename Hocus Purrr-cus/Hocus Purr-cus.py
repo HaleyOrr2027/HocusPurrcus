@@ -21,8 +21,20 @@ player_direction = 0
 
 # Player HP -----------------------------------------------
 
-player_HP0 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP.png").convert_alpha()
-player_HP0_rect = player_surf.get_rect(center = (300, 200))
+player_HP10 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP10.png").convert_alpha()
+player_HP9 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP9.png").convert_alpha()
+player_HP8 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP8.png").convert_alpha()
+player_HP7 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP7.png").convert_alpha()
+player_HP6 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP6.png").convert_alpha()
+player_HP5 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP5.png").convert_alpha()
+player_HP4 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP4.png").convert_alpha()
+player_HP3 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP3.png").convert_alpha()
+player_HP2 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP2.png").convert_alpha()
+player_HP1 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP1.png").convert_alpha()
+player_HP0 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP0.png").convert_alpha()
+
+
+player_HP_rect = player_HP10.get_rect(center = (200, 75))
 
 # Wizard  -------------------------------------------------
 
@@ -30,11 +42,24 @@ wizard2_surf = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/Hocus
 wizard2_rect = wizard2_surf.get_rect(midbottom = (400, 460))
 wizard_wiggle_offset = 0
 wizard_wiggle_direction = 0
+wizard_health = 10
 
 # Wizard HP -----------------------------------------------
 
+wizard_HP10 = pygame.transform.flip(player_HP10, 1, 0)
+wizard_HP9 = pygame.transform.flip(player_HP9, 1, 0)
+wizard_HP8 = pygame.transform.flip(player_HP8, 1, 0)
+wizard_HP7 = pygame.transform.flip(player_HP7, 1, 0)
+wizard_HP6 = pygame.transform.flip(player_HP6, 1, 0)
+wizard_HP5 = pygame.transform.flip(player_HP5, 1, 0)
+wizard_HP4 = pygame.transform.flip(player_HP4, 1, 0)
+wizard_HP3 = pygame.transform.flip(player_HP3, 1, 0)
+wizard_HP2 = pygame.transform.flip(player_HP2, 1, 0)
+wizard_HP1 = pygame.transform.flip(player_HP1, 1, 0)
 wizard_HP0 = pygame.transform.flip(player_HP0, 1, 0)
-wizard_HP0_rect = player_surf.get_rect(center = (740, 200))
+
+wizard_HP_surf = wizard_HP10
+wizard_HP_rect = wizard_HP_surf.get_rect(center = (650, 75))
 
 # Music ---------------------------------------------------
 
@@ -46,8 +71,31 @@ music.set_volume(0.2)
 # Functions -----------------------------------------------
 
 def click_effect():
-    global wizard_wiggle_direction, wizard_wiggle_offset
+    global wizard_wiggle_direction, wizard_wiggle_offset, wizard_HP_surf, wizard_health
 
+    match wizard_health:
+        case 10:
+            wizard_HP_surf = wizard_HP10
+        case 9:
+            wizard_HP_surf = wizard_HP9
+        case 8:
+            wizard_HP_surf = wizard_HP8
+        case 7:
+            wizard_HP_surf = wizard_HP7
+        case 6:
+            wizard_HP_surf = wizard_HP6
+        case 5:
+            wizard_HP_surf = wizard_HP5
+        case 4:
+            wizard_HP_surf = wizard_HP4
+        case 3:
+            wizard_HP_surf = wizard_HP3
+        case 2:
+            wizard_HP_surf = wizard_HP2
+        case 1:
+            wizard_HP_surf = wizard_HP1
+        case 0:
+            wizard_HP_surf = wizard_HP0
 
     if wizard_wiggle_direction != 0:
         wizard_wiggle_offset += 2 * wizard_wiggle_direction
@@ -91,6 +139,10 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN and wizard2_rect.collidepoint(event.pos):
             #Start moving the wizard to the right
             wizard_wiggle_direction = 1
+            click_effect()
+            if wizard_health <= 10 and wizard_health >= 0:
+                wizard_health -= 1
+
         
 
     if game_active:
@@ -101,8 +153,8 @@ while True:
         screen.blit(bg_surface, (0,0))
         screen.blit(wizard2_surf, (wizard2_rect.x + wizard_wiggle_offset, wizard2_rect.y))
         screen.blit(player_surf, player_rect)
-        screen.blit(player_HP0, player_HP0_rect)
-        screen.blit(wizard_HP0, wizard_HP0_rect)
+        screen.blit(player_HP10, player_HP_rect)
+        screen.blit(wizard_HP_surf, wizard_HP_rect)
 
 
 
