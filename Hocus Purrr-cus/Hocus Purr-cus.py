@@ -11,34 +11,34 @@ game_active = True
 
 # Background ----------------------------------------------- 
 
-bg_surface = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/background.png").convert_alpha()
+bg_surface = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/background.png").convert_alpha()
 
 # Player  -------------------------------------------------
 
-player_surf = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/player.png").convert_alpha()
+player_surf = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/player.PNG").convert_alpha()
 player_rect = player_surf.get_rect(midbottom = (400, 533))
 player_direction = 0
 
 # Player HP -----------------------------------------------
 
-player_HP10 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP10.png").convert_alpha()
-player_HP9 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP9.png").convert_alpha()
-player_HP8 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP8.png").convert_alpha()
-player_HP7 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP7.png").convert_alpha()
-player_HP6 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP6.png").convert_alpha()
-player_HP5 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP5.png").convert_alpha()
-player_HP4 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP4.png").convert_alpha()
-player_HP3 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP3.png").convert_alpha()
-player_HP2 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP2.png").convert_alpha()
-player_HP1 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP1.png").convert_alpha()
-player_HP0 = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP0.png").convert_alpha()
+player_HP10 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP0.PNG").convert_alpha()
+player_HP9 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP1.PNG").convert_alpha()
+player_HP8 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP2.PNG").convert_alpha()
+player_HP7 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP3.PNG").convert_alpha()
+player_HP6 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP4.PNG").convert_alpha()
+player_HP5 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP5.PNG").convert_alpha()
+player_HP4 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP6.PNG").convert_alpha()
+player_HP3 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP7.PNG").convert_alpha()
+player_HP2 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP8.PNG").convert_alpha()
+player_HP1 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP9.PNG").convert_alpha()
+player_HP0 = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/HP/HP10.PNG").convert_alpha()
 
 
 player_HP_rect = player_HP10.get_rect(center = (200, 75))
 
 # Wizard  -------------------------------------------------
 
-wizard2_surf = pygame.image.load("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/wizard_2.png").convert_alpha()
+wizard2_surf = pygame.image.load("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Graphics/wizard_2.PNG").convert_alpha()
 wizard2_rect = wizard2_surf.get_rect(midbottom = (400, 460))
 wizard_wiggle_offset = 0
 wizard_wiggle_direction = 0
@@ -63,7 +63,7 @@ wizard_HP_rect = wizard_HP_surf.get_rect(center = (650, 75))
 
 # Music ---------------------------------------------------
 
-music = pygame.mixer.Sound("C:/Users/haley/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Music/FightMusic.mp3")
+music = pygame.mixer.Sound("C:/Users/lazyt/OneDrive/Documents/GitHub/HocusPurrcus/Hocus Purrr-cus/Music/FightMusic.mp3")
 music.play(-1)
 music.set_volume(0.2)
 
