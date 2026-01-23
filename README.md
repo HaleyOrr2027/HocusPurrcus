@@ -5,7 +5,7 @@ The game has a playful, doodle-style aesthetic inspired by wizard cats and sketc
 You’ll have to learn spell movements to block, dodge, and attack - sometimes even moving your body left or right to stop incoming spells. Aiming matters too, as enemies move around
 the screen and you’ll need to track them while staying on the move yourself.
 
-The project is experimenting with an IR camera system inspired by how the Nintendo Wii remote. The wand will track IR points and estimate where it’s aimed, so spells can be
+The project is experimenting with an IR camera system inspired by the Nintendo Wii remote & wands at Harry Potter World at Universal Studios. The wand will track IR points and estimate where it’s aimed, so spells can be
 targeted by physically pointing instead of relying only on keyboard buttons. 
 
 <img width="594" height="395" alt="image" src="https://github.com/user-attachments/assets/bb7ce77a-63b4-4bfa-93ba-621cb3d4598a" />
