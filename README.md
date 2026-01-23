@@ -7,3 +7,5 @@ the screen and you’ll need to track them while staying on the move yourself.
 
 The project is experimenting with an IR camera system inspired by how the Nintendo Wii remote. The wand will track IR points and estimate where it’s aimed, so spells can be
 targeted by physically pointing instead of relying only on keyboard buttons. 
+
+<img width="594" height="395" alt="image" src="https://github.com/user-attachments/assets/bb7ce77a-63b4-4bfa-93ba-621cb3d4598a" />
