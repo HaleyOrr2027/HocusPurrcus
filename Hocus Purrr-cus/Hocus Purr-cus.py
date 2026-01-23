@@ -1,4 +1,5 @@
 import pygame
+import math
 from sys import exit
 from random import randint
 
@@ -8,6 +9,10 @@ screen = pygame.display.set_mode((800, 533))
 clock = pygame.time.Clock()
 
 game_active = True
+mouse_held = False
+start_pos = (0, 0)
+block_drag_distance = 100
+
 
 # Background ----------------------------------------------- 
 
@@ -129,6 +134,17 @@ def player_movement():
     if player_rect.x >= 400:
         player_rect.x = 400
 
+
+def blocking_spell(start_pos, current_pos, threshold):
+    sx, sy = start_pos
+    x, y = current_pos
+
+    dx = x - sx
+    dy = y - sy
+
+    return abs(dx) > threshold and abs(dy) > threshold
+    
+
 while True:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -142,13 +158,35 @@ while True:
             click_effect()
             if wizard_health <= 10 and wizard_health >= 0:
                 wizard_health -= 1
+                
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            mouse_held = True
+            start_pos = event.pos
 
+        # Mouse released
+        if event.type == pygame.MOUSEBUTTONUP:
+            mouse_held = False
+
+        if  mouse_held and event.type == pygame.MOUSEMOTION:
+            # Get the current position of the mouse
+            
+            #mouse_x, mouse_y = event.pos
+            #print(f"Mouse moved to: ({mouse_x}, {mouse_y})")
+
+            if blocking_spell(start_pos, event.pos, block_drag_distance):
+                print("BLOCK")
+                mouse_held = False
+
+
+# Mouse moving while holding
+        
         
 
     if game_active:
 
         click_effect()
         player_movement()
+
 
         screen.blit(bg_surface, (0,0))
         screen.blit(wizard2_surf, (wizard2_rect.x + wizard_wiggle_offset, wizard2_rect.y))
