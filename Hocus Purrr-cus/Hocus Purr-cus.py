@@ -189,6 +189,13 @@ while True:
                 if matched_template.name == "BLOCK" and score > 0.60:
                     print("BLOCK SPELL CAST!")
 
+                if matched_template.name == "STUPEFY" and score > 0.60:
+                    print("STUPEFY SPELL CAST!")
+                
+                if matched_template.name == "INCENDIO" and score > 0.60:
+                    print("INCENDIO SPELL CAST!")
+                    
+
             gesture_points = []
 
 

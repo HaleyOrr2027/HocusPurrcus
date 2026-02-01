@@ -34,13 +34,18 @@ block = (
      [60, 60], [70, 70], [80, 80], [90, 90], [100, 100],
      [110, 110], [120, 120], [130, 130], [140, 140], [150, 150]])
 
+stupefy = ("STUPEFY", [[0, 100], [20, 80], [40, 60], [60, 40], [80, 20],[100, 0], [120, 20], [140, 40], [160, 60], [180, 80],[200, 100]])
+
+incendio = ("INCENDIO", [[0,80],[15,55],[30,30],[50,0],[70,30],[85,55],[100,80],[85,85],[70,90],[50,95],[30,90],[15,85]])
+
+
 
 
 # templates = [triangle, x, rectangle, circle, caret, zig_zag, arrow,
 # 			left_square_bracket, delete,
 # 			left_curly_brace, right_curly_brace, star, pigtail, block]
 
-templates = [block]
+templates = [block, stupefy, incendio]
 
 # templates = [triangle, rectangle, circle]
 templates = map(lambda x: Template(*x), templates)
