@@ -169,7 +169,7 @@ while True:
 
         if  mouse_held and event.type == pygame.MOUSEMOTION:
             # Get the current position of the mouse
-            
+
             #mouse_x, mouse_y = event.pos
             #print(f"Mouse moved to: ({mouse_x}, {mouse_y})")
 
@@ -200,3 +200,9 @@ while True:
 
     pygame.display.update()
     clock.tick(60)
+
+# TODO:
+# Game Over Screen 
+# Wizard movement
+# Wizard cast
+# Blocking wizard spells
