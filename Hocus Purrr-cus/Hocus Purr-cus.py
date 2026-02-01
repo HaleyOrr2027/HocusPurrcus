@@ -1,4 +1,7 @@
 import pygame
+from dollar_one.recognizer import Recognizer
+from dollar_one.template import templates
+
 import math
 from sys import exit
 from random import randint
@@ -8,10 +11,21 @@ pygame.display.set_caption('Hocus Purr-cus')
 screen = pygame.display.set_mode((800, 533))
 clock = pygame.time.Clock()
 
+# Templates
+recognizer = Recognizer()
+for t in list(templates):
+    recognizer.addTemplate(t)
+
+
+#Globals 
+
 game_active = True
 mouse_held = False
 start_pos = (0, 0)
 block_drag_distance = 100
+gesture_points = []
+
+
 
 
 # Background ----------------------------------------------- 
@@ -161,11 +175,22 @@ while True:
                 
         if event.type == pygame.MOUSEBUTTONDOWN:
             mouse_held = True
-            start_pos = event.pos
+            gesture_points = [[event.pos[0], event.pos[1]]]
+   # start list with first point
 
         # Mouse released
         if event.type == pygame.MOUSEBUTTONUP:
             mouse_held = False
+
+            if len(gesture_points) > 10:
+                matched_template, score = recognizer.recognize(gesture_points)
+                print("Detected:", matched_template.name, "Score:", score)
+
+                if matched_template.name == "BLOCK" and score > 0.60:
+                    print("BLOCK SPELL CAST!")
+
+            gesture_points = []
+
 
         if  mouse_held and event.type == pygame.MOUSEMOTION:
             # Get the current position of the mouse
@@ -173,9 +198,11 @@ while True:
             #mouse_x, mouse_y = event.pos
             #print(f"Mouse moved to: ({mouse_x}, {mouse_y})")
 
-            if blocking_spell(start_pos, event.pos, block_drag_distance):
-                print("BLOCK")
-                mouse_held = False
+            #if blocking_spell(start_pos, event.pos, block_drag_distance):
+            #   print("BLOCK")
+            #    mouse_held = False
+
+            gesture_points.append([event.pos[0], event.pos[1]])
 
 
 # Mouse moving while holding
@@ -194,7 +221,7 @@ while True:
         screen.blit(player_HP10, player_HP_rect)
         screen.blit(wizard_HP_surf, wizard_HP_rect)
 
-
+    
 
 
 
