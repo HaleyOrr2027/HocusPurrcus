@@ -9,3 +9,6 @@ The project is experimenting with an IR camera system inspired by the Nintendo W
 targeted by physically pointing instead of relying only on keyboard buttons. 
 
 <img width="594" height="395" alt="image" src="https://github.com/user-attachments/assets/bb7ce77a-63b4-4bfa-93ba-621cb3d4598a" />
+
+<img width="372" height="283" alt="image" src="https://github.com/user-attachments/assets/fbd14698-7831-467a-af87-3f294e3aa552" />
+
